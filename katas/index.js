@@ -93,7 +93,15 @@ function limit(baseFunc, maxCalls) {
   return firstGenericFunc;
 }
 
-function from() {}
+function from(startingNum) {
+  let currentNum = startingNum - 1;
+
+  function incrementBy1() {
+    return ++currentNum;
+  }
+
+  return incrementBy1;
+}
 
 function to() {}
 
