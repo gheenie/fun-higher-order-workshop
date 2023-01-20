@@ -62,7 +62,13 @@ function twice(baseFunc) {
   return firstGenericFunc;
 }
 
-function composeU() {}
+function composeU(baseFunc1, baseFunc2) {
+  function firstGenericFunc(arg) {
+    return baseFunc2( baseFunc1(arg) );
+  }
+
+  return firstGenericFunc;
+}
 
 function composeB() {}
 
