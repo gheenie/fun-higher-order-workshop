@@ -10,11 +10,17 @@ function identityF(arg) {
   return identity;
 }
 
-function add() {}
+function add(n1, n2) {
+  return n1 + n2;
+}
 
-function subtract() {}
+function subtract(n1, n2) {
+  return n1 - n2;
+}
 
-function multiply() {}
+function multiply(n1, n2) {
+  return n1 * n2;
+}
 
 function increment() {}
 
