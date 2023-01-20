@@ -3,7 +3,11 @@ function identity(arg) {
 }
 
 function identityF(arg) {
-  
+  function identity() {
+    return arg;
+  }  
+
+  return identity;
 }
 
 function add() {}
