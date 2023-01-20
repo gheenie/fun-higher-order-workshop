@@ -117,7 +117,20 @@ function to(generator, maxValue) {
   return firstGenericFunc;
 }
 
-function fromTo() {}
+function fromTo(startingNum, maxValue) {
+  const generator = from(startingNum);
+  let currentNum = 0;
+  
+  function firstGenericFunc() {
+    currentNum = generator();
+
+    if (currentNum < maxValue) return currentNum;
+    
+    return undefined;
+  }
+
+  return firstGenericFunc;
+}
 
 function element() {}
 
