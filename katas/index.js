@@ -34,7 +34,13 @@ function addF(n1) {
   return add;
 }
 
-function curry() {}
+function curry(binaryFunction, n1) {
+  function secondCallingFunction(n2) {
+    return binaryFunction(n1, n2);
+  }
+
+  return secondCallingFunction;
+}
 
 function liftF() {}
 
