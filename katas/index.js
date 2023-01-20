@@ -34,27 +34,33 @@ function addF(n1) {
   return add;
 }
 
-function curry(binaryFunction, arg1) {
-  function secondCallingFunction(arg2) {
-    return binaryFunction(arg1, arg2);
+function curry(baseFunc, arg1) {
+  function firstGenericFunc(arg2) {
+    return baseFunc(arg1, arg2);
   }
 
-  return secondCallingFunction;
+  return firstGenericFunc;
 }
 
-function liftF(aFunction) {
-  function secondCallingFunction(arg1) {
-    function thirdCallingFunction(arg2) {
-      return aFunction(arg1, arg2);
+function liftF(baseFunc) {
+  function firstGenericFunc(arg1) {
+    function secondGenericFunc(arg2) {
+      return baseFunc(arg1, arg2);
     }
 
-    return thirdCallingFunction;
+    return secondGenericFunc;
   }
 
-  return secondCallingFunction;
+  return firstGenericFunc;
 }
 
-function twice() {}
+function twice(baseFunc) {
+  function firstGenericFunc(arg) {
+    return baseFunc(arg, arg);
+  }
+
+  return firstGenericFunc;
+}
 
 function composeU() {}
 
