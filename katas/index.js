@@ -1,6 +1,10 @@
-function identity() {}
+function identity(arg) {
+  return arg;
+}
 
-function identityF() {}
+function identityF(arg) {
+  
+}
 
 function add() {}
 
