@@ -103,36 +103,50 @@ function from(startingNum) {
   return incrementBy1;
 }
 
-function to(generator, maxValue) {
+function to(increment, maxValue) {
   let currentNum = 0;
   
-  function firstGenericFunc() {
-    currentNum = generator();
+  function incrementWithMax() {
+    currentNum = increment();
 
     if (currentNum < maxValue) return currentNum;
 
     return undefined;
   }
 
-  return firstGenericFunc;
+  return incrementWithMax;
 }
 
 function fromTo(startingNum, maxValue) {
-  const generator = from(startingNum);
+  const increment = from(startingNum);
   let currentNum = 0;
   
-  function firstGenericFunc() {
-    currentNum = generator();
+  function incrementWithMax() {
+    currentNum = increment();
 
     if (currentNum < maxValue) return currentNum;
     
     return undefined;
   }
 
-  return firstGenericFunc;
+  return incrementWithMax;
 }
 
-function element() {}
+function element(arr, increment) {
+  let currentIndex = -1;
+
+  function firstGenericFunc() {
+    if (typeof increment === 'function') {
+      currentIndex = increment();
+    } else {
+      currentIndex++;
+    }
+
+    return arr[currentIndex];
+  }
+
+  return firstGenericFunc;
+}
 
 function collect() {}
 
