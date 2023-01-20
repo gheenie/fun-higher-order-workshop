@@ -26,7 +26,13 @@ function increment(n) {
   return add(n, 1);
 }
 
-function addF() {}
+function addF(n1) {
+  function add(n2) {
+    return n1 + n2;
+  }
+
+  return add;
+}
 
 function curry() {}
 
