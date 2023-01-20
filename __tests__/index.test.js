@@ -24,7 +24,7 @@ const {
   genSymFF,
   counter,
   revokable,
-} = require('../index.js');
+} = require('../katas/index.js');
 
 describe('Higher Order Functions', () => {
   describe('Identity Functions', () => {
