@@ -78,7 +78,20 @@ function composeB(baseFunc1, baseFunc2) {
   return firstGenericFunc;
 }
 
-function limit() {}
+function limit(baseFunc, maxCalls) {
+  let count = 0;
+
+  function firstGenericFunc(arg1, arg2) {
+    if (count < maxCalls) {
+      count++;
+      return baseFunc(arg1, arg2);
+    }
+
+    return undefined;
+  }
+
+  return firstGenericFunc;
+}
 
 function from() {}
 
