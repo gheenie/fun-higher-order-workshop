@@ -70,7 +70,13 @@ function composeU(baseFunc1, baseFunc2) {
   return firstGenericFunc;
 }
 
-function composeB() {}
+function composeB(baseFunc1, baseFunc2) {
+  function firstGenericFunc(arg1, arg2, arg3) {
+    return baseFunc2( baseFunc1(arg1, arg2) , arg3);
+  }
+
+  return firstGenericFunc;
+}
 
 function limit() {}
 
