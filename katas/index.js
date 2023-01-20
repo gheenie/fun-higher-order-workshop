@@ -103,7 +103,19 @@ function from(startingNum) {
   return incrementBy1;
 }
 
-function to() {}
+function to(generator, maxValue) {
+  let currentNum = 0;
+  
+  function firstGenericFunc() {
+    currentNum = generator();
+
+    if (currentNum < maxValue) return currentNum;
+
+    return undefined;
+  }
+
+  return firstGenericFunc;
+}
 
 function fromTo() {}
 
