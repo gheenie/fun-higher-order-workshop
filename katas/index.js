@@ -83,7 +83,7 @@ function composeU(...baseFuncs) {
     for (let i = 0; i < baseFuncs.length; i++) {
       arg = baseFuncs[i](arg);
     }
-    
+
     return arg;
   }
 
@@ -180,7 +180,19 @@ function genSymF() {}
 
 function genSymFF() {}
 
-function counter() {}
+function counter(startNum) {
+  let count = startNum;
+
+  function up() {
+    return ++count;
+  }
+
+  function down() {
+    return --count;
+  }
+
+  return { up, down };
+}
 
 function revokable() {}
 
