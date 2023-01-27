@@ -194,7 +194,21 @@ function counter(startNum) {
   return { up, down };
 }
 
-function revokable() {}
+function revokable(baseFunc) {
+  let isRevoked = false;
+
+  function invoke(arg1, arg2) {
+    if (!isRevoked) return baseFunc(arg1, arg2);
+
+    return undefined;
+  }
+
+  function revoke() {
+    isRevoked = true;
+  }
+
+  return { invoke, revoke };
+}
 
 module.exports = {
   identity,
