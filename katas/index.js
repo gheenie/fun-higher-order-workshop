@@ -34,9 +34,17 @@ function addF(n1) {
   return add;
 }
 
-function curry(baseFunc, arg1) {
+/*function curry(baseFunc, arg1) {
   function firstGenericFunc(arg2) {
     return baseFunc(arg1, arg2);
+  }
+
+  return firstGenericFunc;
+}*/
+
+function curry(baseFunc, ...args1) {
+  function firstGenericFunc(...args2) {
+    return baseFunc.apply(null, [...args1, ...args2]);
   }
 
   return firstGenericFunc;
