@@ -70,9 +70,21 @@ function twice(baseFunc) {
   return firstGenericFunc;
 }
 
-function composeU(baseFunc1, baseFunc2) {
+/*function composeU(baseFunc1, baseFunc2) {
   function firstGenericFunc(arg) {
     return baseFunc2( baseFunc1(arg) );
+  }
+
+  return firstGenericFunc;
+}*/
+
+function composeU(...baseFuncs) {
+  function firstGenericFunc(arg) {
+    for (let i = 0; i < baseFuncs.length; i++) {
+      arg = baseFuncs[i](arg);
+    }
+    
+    return arg;
   }
 
   return firstGenericFunc;
