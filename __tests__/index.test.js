@@ -168,31 +168,31 @@ describe('Higher Order Functions', () => {
     });
     describe('limit', () => {
       it('returns a function on first invocation', () => {
-        const addUseOnceOnly = limit(add, 1);
-        expect(typeof addUseOnceOnly).toBe('function');
+        const useAddOnceOnly = limit(add, 1);
+        expect(typeof useAddOnceOnly).toBe('function');
       });
       it('on subsequent uses, returns value of original function when invoked less times than given limit', () => {
-        const addUseLiberally = jest.fn(limit(add, 108));
-        expect(addUseLiberally(3, 1)).toBe(4);
-        expect(addUseLiberally(4, 4)).toBe(8);
-        expect(addUseLiberally(0, 15)).toBe(15);
-        expect(addUseLiberally(1, 15)).toBe(16);
-        expect(addUseLiberally(11, 12)).toBe(23);
-        expect(addUseLiberally(4, 38)).toBe(42);
-        expect(addUseLiberally).toHaveBeenCalledTimes(6);
+        const useAddLiberally = jest.fn(limit(add, 108));
+        expect(useAddLiberally(3, 1)).toBe(4);
+        expect(useAddLiberally(4, 4)).toBe(8);
+        expect(useAddLiberally(0, 15)).toBe(15);
+        expect(useAddLiberally(1, 15)).toBe(16);
+        expect(useAddLiberally(11, 12)).toBe(23);
+        expect(useAddLiberally(4, 38)).toBe(42);
+        expect(useAddLiberally).toHaveBeenCalledTimes(6);
       });
       it('returns undefined when invoked more times than given limit', () => {
-        const addUseScarcely = jest.fn(limit(add, 3));
-        expect(addUseScarcely(3, 1)).toBe(4);
-        expect(addUseScarcely).toHaveBeenCalledTimes(1);
-        expect(addUseScarcely(4, 4)).toBe(8);
-        expect(addUseScarcely).toHaveBeenCalledTimes(2);
-        expect(addUseScarcely(0, 15)).toBe(15);
-        expect(addUseScarcely).toHaveBeenCalledTimes(3);
-        expect(addUseScarcely(1, 15)).toBe(undefined);
-        expect(addUseScarcely).toHaveBeenCalledTimes(4);
-        expect(addUseScarcely(11, 12)).toBe(undefined);
-        expect(addUseScarcely).toHaveBeenCalledTimes(5);
+        const useSubtractScarcely = jest.fn(limit(subtract, 3));
+        expect(useSubtractScarcely(3, 1)).toBe(2);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(1);
+        expect(useSubtractScarcely(8, 4)).toBe(4);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(2);
+        expect(useSubtractScarcely(15, 2)).toBe(13);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(3);
+        expect(useSubtractScarcely(10, 5)).toBe(undefined);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(4);
+        expect(useSubtractScarcely(11, 1)).toBe(undefined);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(5);
       });
     });
   });

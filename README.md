@@ -75,7 +75,15 @@ const result = multiply5(6);
 console.log(result); // 30
 ```
 
-8. Write a function `twice` that takes a binary function and returns a unary function (_a function that takes one argument_) that passes its argument to the binary function twice.
+## Special Task
+
+**You will need to write your own tests for this one!**
+
+8. Write a function `once` that works in the same way as the [lodash version](https://lodash.com/docs/4.17.15#once). **nb** You can ignore the this bindings mentioned in the docs. We'll cover this later in the course.
+
+## More Tasks
+
+9. Write a function `twice` that takes a binary function and returns a unary function (_a function that takes one argument_) that passes its argument to the binary function twice.
 
 ```js
 const double = twice(add);
@@ -88,14 +96,6 @@ const square = twice(multiply);
 const result = square(11);
 console.log(result); // 121
 ```
-
-## Special Task
-
-**You will need to write your own tests for this one!**
-
-9. Write a function `once` that works in the same way as the [lodash version](https://lodash.com/docs/4.17.15#once). **nb** You can ignore the this bindings mentioned in the docs. We'll cover this later in the course.
-
-## More Tasks
 
 10. Write a function `composeU` that takes two unary functions and returns a unary function that calls them both, in argument order.
 
@@ -152,7 +152,7 @@ index(); // undefined
 16. Write an `element` function that takes an array and a generator and returns a generator that will produce elements from the array.
 
 ```js
-const ele = element(["a", "b", "c", "d"], fromTo(1, 3));
+const ele = element(['a', 'b', 'c', 'd'], fromTo(1, 3));
 ele(); // 'b'
 ele(); // 'c'
 ele(); // undefined
@@ -161,7 +161,7 @@ ele(); // undefined
 17. Modify the `element` function so that the generator argument is optional. If a generator in not provided, then each of the elements of the array will be produced.
 
 ```js
-const ele = element(["a", "b", "c", "d"]);
+const ele = element(['a', 'b', 'c', 'd']);
 ele(); // 'a'
 ele(); // 'b'
 ele(); // 'c'
@@ -221,8 +221,8 @@ fib(); // 5
 22. Make a function `genSymF` that makes a function that generates unique symbols.
 
 ```js
-const genG = genSymF("G");
-const genH = genSymF("H");
+const genG = genSymF('G');
+const genH = genSymF('H');
 genG(); // "G0"
 genH(); // "H0"
 genG(); // "G1"
@@ -235,8 +235,8 @@ genH(); // "H2"
 
 ```js
 const genSymF = genSymFF(increment, 0);
-const genG = genSymF("G");
-const genH = genSymF("H");
+const genG = genSymF('G');
+const genH = genSymF('H');
 genG(); // "G1"
 genH(); // "H1"
 genG(); // "G2"
@@ -271,14 +271,14 @@ add.invoke(5, 7); // undefined
 
 ```js
 function multiply5(a, b, c, d, e) {
-	return a * b * c * d * e;
+  return a * b * c * d * e;
 }
 curry(multiply5, 1, 2)(3, 4, 5); // 120
 curry(multiply5, 1, 2, 3)(4, 5); // 120
 ```
 
--   Wow, that was ugly. Research ES6 spread syntax. Can you make it a lot more elegant?
--   Write `composeU` such that it can take any number of unary functions
+- Wow, that was ugly. Research ES6 spread syntax. Can you make it a lot more elegant?
+- Write `composeU` such that it can take any number of unary functions
 
 ## A much more difficult task
 
